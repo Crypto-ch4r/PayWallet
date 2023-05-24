@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_menu">
+
+    <fragment
+        android:id="@+id/fragment_menu"
+        android:name="dev.carlos.paywallet.fragments.ui.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+
+        <action
+            android:id="@+id/action_menu_to_deldia"
+            app:destination="@id/fragment_of_the_day"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/fragment_of_the_day"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="dev.carlos.paywallet.fragments.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_menu"
+            app:destination="@id/menu"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/fragment_login"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_of_the_day"
+        android:name="dev.carlos.paywallet.fragments.ui.DOTDFragment"
+        android:label="FragmentDelDia"
+        tools:layout="@layout/fragmentdotd" >
+        <action
+            android:id="@+id/action_delDia_to_fragmentProducto"
+            app:destination="@id/fragment_Product" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_Product"
+        android:name="dev.carlos.paywallet.fragments.ui.ProductFragment"
+        android:label="fragment_producto"
+        tools:layout="@layout/fragment_product" >
+        <action
+            android:id="@+id/action_fragmentProducto_to_fragmentInstrucciones"
+            app:destination="@id/fragment_Instructions" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_Instructions"
+        android:name="dev.carlos.paywallet.fragments.ui.InstructionsFragment"
+        android:label="fragment_instrucciones"
+        tools:layout="@layout/fragment_instructions" >
+        <action
+            android:id="@+id/action_fragmentInstrucciones_to_fragmentOrden"
+            app:destination="@id/fragment_Order" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_Order"
+        android:name="dev.carlos.paywallet.fragments.ui.OrderFragment"
+        android:label="fragment_orden"
+        tools:layout="@layout/fragment_order" />
+    <fragment
+        android:id="@+id/fragment_Added_Error"
+        android:name="dev.carlos.paywallet.fragments.ui.AddedFailFragment"
+        android:label="fragment_added_error"
+        tools:layout="@layout/fragment_added_fail" />
+    <fragment
+        android:id="@+id/fragment_Added_Success"
+        android:name="dev.carlos.paywallet.fragments.ui.AddedSuccessFragment"
+        android:label="fragment_added_success"
+        tools:layout="@layout/fragment_added_success" />
+    <action
+        android:id="@+id/action_global_FragmentLogin"
+        app:destination="@id/fragment_login"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
+</navigation>

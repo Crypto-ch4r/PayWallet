@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">PayWallet</string>
+
+    <!--Login strings-->
+    <string name="txtLogin1">¡Bienvenidx!</string>
+    <string name="txtLogin2">Inicia sesión para continuar</string>
+    <string name="txtLogin3">Número de control</string>
+    <string name="txtLogin4">Contraseña</string>
+    <string name="txtLogin5">Iniciar sesión</string>
+    <string name="txtLogin6">¿Olvidaste tu contraseña?</string>
+    <string name="txtLogin7">¿No tienes una cuenta?</string>
+
+    <!-- Navigation strings -->
+    <string name="txtNavigation1">Menú</string>
+    <string name="txtNavigation2">Mi orden</string>
+    <string name="txtNavigation3">Mi perfil</string>
+
+    <!-- Dish of the day strings -->
+    <string name="txtDish1">Platillos del día</string>
+
+    <!-- Product strings -->
+    <string name="txtProduct1">Producto</string>
+    <string name="txtProduct2">Descripción del producto</string>
+    <string name="txtProduct3">$50.00</string>
+    <string name="txtProduct4">Agregar a tu orden</string>
+    <string name="txtProduct5">Regresar</string>
+    <string name="txtProduct6">Eliminar</string>
+
+
+    <!-- Instructions strings -->
+    <string name="txtInstructions1">¿Alguna especificación para tu pedido?</string>
+    <string name="txtInstructions2">¡Escribe aquí!</string>
+    <string name="txtInstructions3">Escribe aqui las instrucciónes para realizar tu pedido. En caso de no tener alguna, solo da clic en siguiente.</string>
+    <string name="txtInstructions4">A continuación, escriba la cantidad deseada</string>
+    <string name="txtInstructions5">Cantidad</string>
+    <string name="txtInstructions6">Siguiente</string>
+    <string name="txtInstructions7">Regresar</string>
+
+    <!-- Order strings -->
+    <string name="txtOrder1">Mi orden</string>
+    <string name="txtOrder2">Ordenar</string>
+    <string name="txtOrder3">Cancelar orden</string>
+    <string name="txtOrder4">¡El platillo se añadió exitosamente a tu orden!</string>
+    <string name="txtOrder5">Oh, oh... Ha ocurrido un error.</string>
+    <string name="txtOrder6">¡No es culpa tuya!</string>
+    <string name="txtOrder7">Intenta nuevamente ó acude en persona a hacer tu orden.</string>
+
+
+    <!-- Lorem Ipsum -->
+    <string name="lorem">Lorem</string>
+    <string name="lorem2">Lorem ipsum</string>
+    <string name="lorem3">Lorem ipsum solem sit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

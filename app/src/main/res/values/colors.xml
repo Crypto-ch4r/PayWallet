@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="chathamsBlue">#14346c</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#1A5B31</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- New colors DO NOT DELETE -->
+
+    <color name="geyser">#d4dae3</color>
+    <!-- <color name="chathamsBlue">#14346c</color> -->
+    <color name="lynch">#677d9e</color>
+    <color name="baliHai1">#8c9cb4</color>
+    <color name="baliHai2">#8494b4</color>
+    <color name="balihai3"> #849cb4</color>
+    <color name="chambray">#395682</color>
+    <color name="kashmirBlue1">#47638c</color>
+    <color name="kashmirBlue2">#4c6c8c</color>
+
+
+    <!-- Old colors DO NOT DELETE
+
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#5D221A</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#1A5B31</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+     -->
+</resources>

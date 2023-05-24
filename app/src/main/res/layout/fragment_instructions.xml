@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ui.InstructionsFragment">
+
+    <TextView
+        android:id="@+id/tvIntstrucciones1"
+        android:layout_width="410dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="16dp"
+        android:text="@string/txtInstructions1"
+        android:textAppearance="?attr/textAppearanceTitleLarge"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvInstrucciones2"
+        android:layout_width="149dp"
+        android:layout_height="29dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        android:text="@string/txtInstructions2"
+        android:textAppearance="?attr/textAppearanceBodyMedium"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="49dp" />
+    <!--
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="371dp"
+            android:layout_height="239dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            tools:layout_editor_absoluteX="18dp"
+            tools:layout_editor_absoluteY="78dp" /> -->
+
+    <EditText
+        android:id="@+id/etInstrucciones"
+        android:layout_width="376dp"
+        android:layout_height="239dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/edit_text_bg"
+        android:gravity="top"
+        android:hint="@string/txtInstructions3"
+        android:inputType="textMultiLine"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInstrucciones2" />
+
+    <TextView
+        android:id="@+id/tvInstrucciones3"
+        android:layout_width="407dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="16dp"
+        android:text="@string/txtInstructions4"
+        android:textAppearance="?attr/textAppearanceTitleLarge"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etInstrucciones2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etInstrucciones" />
+
+    <EditText
+        android:id="@+id/etInstrucciones2"
+        android:layout_width="188dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="204dp"
+        android:ems="10"
+        android:background="@drawable/edit_text_bg"
+        android:hint="@string/txtInstructions5"
+        android:inputType="numberSigned"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInstrucciones3" />
+
+    <Button
+        android:id="@+id/btnInstrucciones1"
+        android:layout_width="301dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="19dp"
+        android:text="@string/txtInstructions6"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etInstrucciones2"/>
+
+    <Button
+        android:id="@+id/btnInstrucciones2"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="301dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="55dp"
+        android:text="@string/txtProduct5"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInstrucciones1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

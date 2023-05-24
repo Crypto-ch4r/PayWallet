@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ui.LoginFragment">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131"
+        app:srcCompat="@drawable/logo_v1" />
+
+    <TextView
+        android:id="@+id/tvLogin1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="388dp"
+        android:text="@string/txtLogin1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <TextView
+        android:id="@+id/tvLogin2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="412dp"
+        android:text="@string/txtLogin2"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!-- style="@style/Widget.Material3.TextInputEditText.OutlinedBox" -->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etLogin1"
+        android:layout_width="301dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:hint="@string/txtLogin3"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/etPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin2" />
+
+    <!--style="@style/Widget.Material3.TextInputEditText.OutlinedBox"-->
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etPassword"
+
+        android:layout_width="301dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginBottom="294dp"
+        android:ems="10"
+        android:hint="@string/txtLogin4"
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLogin1" />
+
+    <Button
+        android:id="@+id/btnLogin1"
+        android:layout_width="301dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="213dp"
+        android:text="@string/txtLogin5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+    <Button
+        android:id="@+id/btnLogin2"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="301dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="152dp"
+        android:text="@string/txtLogin6"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin1" />
+
+    <Button
+        android:id="@+id/btnLogin3"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="301dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="90dp"
+        android:text="@string/txtLogin7"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "869136245495",
+    "project_id": "paywallet-e4c84",
+    "storage_bucket": "paywallet-e4c84.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869136245495:android:14cc3ec7d2863d5b41a9f2",
+        "android_client_info": {
+          "package_name": "dev.carlos.paywallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869136245495-jcnfa4ofsq99u9as943svuqo9b4boptf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfOeCsub1WwVAaJNn6Mjcsv96CoMW1ZLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869136245495-jcnfa4ofsq99u9as943svuqo9b4boptf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
