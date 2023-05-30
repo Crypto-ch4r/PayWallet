@@ -16,7 +16,7 @@
     <string name="txtNavigation3">Mi perfil</string>
 
     <!-- Dish of the day strings -->
-    <string name="txtDish1">Platillos del día</string>
+    <string name="txtDish1">Menú</string>
 
     <!-- Product strings -->
     <string name="txtProduct1">Producto</string>
@@ -50,6 +50,7 @@
     <string name="lorem">Lorem</string>
     <string name="lorem2">Lorem ipsum</string>
     <string name="lorem3">Lorem ipsum solem sit</string>
+    <string name="default_quantity">0</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -20,20 +21,12 @@ import dev.carlos.paywallet.databinding.FragmentLoginBinding
 import dev.carlos.paywallet.fragments.MainActivity
 import dev.carlos.paywallet.fragments.SavedPreference
 import dev.carlos.paywallet.fragments.dataClass.User
-import dev.carlos.paywallet.fragments.removeMenu
 
 class LoginFragment : Fragment() {
 
     //Database and user dataclass
     private lateinit var user: User
     private lateinit var auth: FirebaseAuth
-
-    private lateinit var email: TextInputEditText
-    private lateinit var password: TextInputEditText
-
-    private lateinit var loginButton: MaterialButton
-    private lateinit var registerButton: MaterialButton
-    private lateinit var forgotPasswordButton: MaterialButton
 
     private lateinit var navController: NavController
 
@@ -43,15 +36,17 @@ class LoginFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (requireActivity() as MainActivity).removeMenu()
+        (requireActivity() as MainActivity)
 
         //Firebase access
         auth = Firebase.auth
         var firebaseAuth = FirebaseAuth.getInstance()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -64,18 +59,18 @@ class LoginFragment : Fragment() {
             requireActivity().getSharedPreferences(SavedPreference.toString(), Context.MODE_PRIVATE)
 
 
-        loginButton.setOnClickListener {
-            if (email.text.toString().isEmpty() || password.text.toString().isEmpty()) {
-                Toast.makeText(requireContext(), "Completa todos los campos", Toast.LENGTH_SHORT)
-                    .show()
-            } else {
-                auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
-                    .addOnCompleteListener(requireActivity()) { task ->
+        binding.btnLogin1.setOnClickListener {
+            val emailField = binding.etLogin1?.editableText.toString()
+            val passwordField = binding.etPassword?.editableText.toString()
+
+            if (emailField.isNotEmpty() == true && passwordField.isNotEmpty()) {
+                auth.signInWithEmailAndPassword(emailField, passwordField)
+                    .addOnCompleteListener() { task ->
                         if (task.isSuccessful) {
                             db.collection("usuarios")
-                                .whereEqualTo("noControl", email.text.toString())
+                                .whereEqualTo("noControl", emailField)
                                 .get().addOnSuccessListener { documents ->
-                                    for (document in documents){
+                                    for (document in documents) {
                                         user = User(
                                             document.data["control_num"].toString(),
                                             document.data["password"].toString(),
@@ -92,16 +87,44 @@ class LoginFragment : Fragment() {
                                     ).show()
                                     preferences.edit().putString("email", user?.email).apply()
                                     navController.navigate(R.id.action_login_to_menu)
+                                   // view.findNavController().navigate(R.id.action_login_to_menu)
                                 }
                         } else {
                             Toast.makeText(
                                 requireContext(),
                                 "Error al iniciar sesión",
                                 Toast.LENGTH_SHORT
-                            ).show()
+                            )
+                                .show()
                         }
+
                     }
+
+                binding.btnLogin2.setOnClickListener {
+                    Toast.makeText(
+                        requireContext(),
+                        "Acude a la cafetería por asistencia.",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+
+                binding.btnLogin3.setOnClickListener {
+                    Toast.makeText(
+                        requireContext(),
+                        "Acude a la cafetería para tu registro",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+
             }
+
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

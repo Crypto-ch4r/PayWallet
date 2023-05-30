@@ -2,27 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/fragment_menu">
-
-    <fragment
-        android:id="@+id/fragment_menu"
-        android:name="dev.carlos.paywallet.fragments.ui.MenuFragment"
-        android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" >
-
-        <action
-            android:id="@+id/action_menu_to_deldia"
-            app:destination="@id/fragment_of_the_day"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@id/fragment_of_the_day"
-            app:popUpToInclusive="true"/>
-
-    </fragment>
+    android:id="@+id/nav_graph">
 
     <fragment
         android:id="@+id/fragment_login"
@@ -31,7 +11,7 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_login_to_menu"
-            app:destination="@id/menu"
+            app:destination="@+id/fragment_of_the_day"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:launchSingleTop="true"
@@ -56,7 +36,7 @@
         android:name="dev.carlos.paywallet.fragments.ui.ProductFragment"
         android:label="fragment_producto"
         tools:layout="@layout/fragment_product" >
-        <action
+            <action
             android:id="@+id/action_fragmentProducto_to_fragmentInstrucciones"
             app:destination="@id/fragment_Instructions" />
     </fragment>
@@ -85,7 +65,7 @@
         android:name="dev.carlos.paywallet.fragments.ui.AddedSuccessFragment"
         android:label="fragment_added_success"
         tools:layout="@layout/fragment_added_success" />
-    <action
+        <action
         android:id="@+id/action_global_FragmentLogin"
         app:destination="@id/fragment_login"
         app:popUpTo="@id/nav_graph"
