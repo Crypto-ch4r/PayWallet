@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -25,7 +27,7 @@ import dev.carlos.paywallet.fragments.interfaces.MenuApi
 import dev.carlos.paywallet.fragments.interfaces.RequestType
 
 
-class DOTDFragment : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener, MenuApi {
+class DOTDFragment() : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener, MenuApi {
 
     //Database and user dataclass
     private lateinit var user: User
@@ -68,14 +70,14 @@ class DOTDFragment : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener, Me
             .addOnSuccessListener {
                 val allItems = mutableListOf<MenuItem>()
                 for (document in it) {
-                    var imageUrl = document.data["imagen.completeUrl"].toString()
-                    var itemShortDesc: String = document.data["descripcion"].toString()
+                    var imageUrl = document.getString("imagen.completeUrl")
+                    var itemShortDesc = document.getString("descripcion")
                     val item = MenuItem(
                         itemCategory = document.data["categoria"].toString(),
-                        imageUrl = document.data["completeUrl"].toString(),
+                        imageUrl = imageUrl.toString(),
                         itemName = document.data["nombre"].toString(),
                         itemPrice = document.data["precio"].toString().toFloat(),
-                        itemShortDesc = document.data["descripcion"].toString()
+                        itemShortDesc = itemShortDesc.toString()
                     )
                     allItems.add(item)
                     println(imageUrl)
@@ -103,8 +105,60 @@ class DOTDFragment : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener, Me
     }
 
     override fun onItemClick(item: MenuItem) {
-        TODO("Not yet implemented")
+        val db = Firebase.firestore
+        db.collection("platillos")
+            .whereEqualTo("id", item.itemID) // Asegúrate de reemplazar "id" con el campo adecuado en Firestore
+            .get()
+            .addOnSuccessListener { snapshot ->
+                val document = snapshot.documents.firstOrNull()
+                if (document != null) {
+                    val imageUrl = document.getString("imagen.completeUrl")
+                    val itemShortDesc = document.getString("descripcion")
+                    val selectedItem = document.data?.get("nombre")?.let {
+                        MenuItem(
+                            //itemCategory = document.data["categoria"].toString(),
+                            imageUrl = imageUrl.toString(),
+                            itemName = it.toString(),
+                            itemPrice = document.data?.get("precio").toString().toFloat(),
+                            itemShortDesc = itemShortDesc.toString()
+                        )
+                    }
+                    // Realiza la navegación a la pantalla de información del platillo aquí,
+                    // pasando el objeto "selectedItem" como argumento.
+
+                }
+            }
     }
+
+    /* override fun onItemClick(item: MenuItem) {
+         val db = Firebase.firestore
+         db.collection("platillos")
+             .whereEqualTo("id", item.id)
+             .get()
+             .addOnSuccessListener { snapsshot ->
+
+
+             }
+      /*   db.collection("platillos")
+             .get()
+             .addOnSuccessListener {
+                 val items = mutableListOf<MenuItem>()
+                 for (document in it) {
+                     var idItem = document.id
+                     var imageUrl = document.getString("imagen.completeUrl")
+                     var itemShortDesc = document.getString("descripcion")
+                     val item = MenuItem(
+                         itemCategory = document.data["categoria"].toString(),
+                         imageUrl = imageUrl.toString(),
+                         itemName = document.data["nombre"].toString(),
+                         itemPrice = document.data["precio"].toString().toFloat(),
+                         itemShortDesc = itemShortDesc.toString()
+                     )
+                     items.add(item)
+                 }
+             }*/
+         navController.navigate(R.id.action_delDia_to_fragmentProducto)
+     }*/
 
     override fun onPlusBtnClick(item: MenuItem) {
         TODO("Not yet implemented")

@@ -66,10 +66,16 @@
         android:name="dev.carlos.paywallet.fragments.ui.AddedSuccessFragment"
         android:label="fragment_added_success"
         tools:layout="@layout/fragment_added_success" />
-        <action
+
+    <action
         android:id="@+id/action_global_FragmentLogin"
         app:destination="@id/fragment_login"
         app:popUpTo="@id/nav_graph"
         app:popUpToInclusive="true" />
 
+    <action
+        android:id="@+id/action_global_ProductFragment"
+        app:destination="@id/fragment_Product"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
 </navigation>

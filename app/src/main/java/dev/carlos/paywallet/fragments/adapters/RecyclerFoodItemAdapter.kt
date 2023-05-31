@@ -8,6 +8,7 @@ import android.widget.Filter
 import android.widget.Filterable
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.NavGraph
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import dev.carlos.paywallet.R
@@ -25,6 +26,7 @@ class RecyclerFoodItemAdapter(
     private var fullItemList = itemList
 
     interface OnItemClickListener {
+
         fun onItemClick(item: MenuItem)
         fun onPlusBtnClick(item: MenuItem)
         fun onMinusBtnClick(item: MenuItem)
