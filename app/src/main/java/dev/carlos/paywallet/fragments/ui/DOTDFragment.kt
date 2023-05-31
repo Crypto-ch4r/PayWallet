@@ -1,6 +1,7 @@
 package dev.carlos.paywallet.fragments.ui
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,10 +18,14 @@ import dev.carlos.paywallet.databinding.FragmentLoginBinding
 import dev.carlos.paywallet.databinding.FragmentdotdBinding
 import dev.carlos.paywallet.fragments.MainActivity
 import dev.carlos.paywallet.fragments.SavedPreference
+import dev.carlos.paywallet.fragments.adapters.RecyclerFoodItemAdapter
+import dev.carlos.paywallet.fragments.dataClass.MenuItem
 import dev.carlos.paywallet.fragments.dataClass.User
+import dev.carlos.paywallet.fragments.interfaces.MenuApi
+import dev.carlos.paywallet.fragments.interfaces.RequestType
 
 
-class DOTDFragment : Fragment() {
+class DOTDFragment : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener, MenuApi {
 
     //Database and user dataclass
     private lateinit var user: User
@@ -56,9 +61,60 @@ class DOTDFragment : Fragment() {
         val preferences =
             requireActivity().getSharedPreferences(SavedPreference.toString(), Context.MODE_PRIVATE)
 
+              val sharedPreferences: SharedPreferences? = activity?.getSharedPreferences(SavedPreference.toString(), Context.MODE_PRIVATE)
+
+        db.collection("platillos")
+            .get()
+            .addOnSuccessListener {
+                val allItems = mutableListOf<MenuItem>()
+                for (document in it) {
+                    var imageUrl = document.data["imagen.completeUrl"].toString()
+                    var itemShortDesc: String = document.data["descripcion"].toString()
+                    val item = MenuItem(
+                        itemCategory = document.data["categoria"].toString(),
+                        imageUrl = document.data["completeUrl"].toString(),
+                        itemName = document.data["nombre"].toString(),
+                        itemPrice = document.data["precio"].toString().toFloat(),
+                        itemShortDesc = document.data["descripcion"].toString()
+                    )
+                    allItems.add(item)
+                    println(imageUrl)
+                    println(itemShortDesc)
+                    println("F U pay me")
+                }
+
+                val itemRecyclerView = binding.rvdelDia
+                val recyclerFoodAdapter = RecyclerFoodItemAdapter(
+                    requireContext(),
+                    allItems,
+                    sharedPreferences?.getInt("loadItemImages",0) ?: 0,
+                    this
+                )
+                itemRecyclerView.adapter = recyclerFoodAdapter
+                itemRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+                recyclerFoodAdapter.filterList(allItems) //display complete list
+            }
+
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(item: MenuItem) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onPlusBtnClick(item: MenuItem) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onMinusBtnClick(item: MenuItem) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onFetchSuccessListener(list: ArrayList<MenuItem>, requestType: RequestType) {
+        TODO("Not yet implemented")
     }
 }

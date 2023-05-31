@@ -16,13 +16,13 @@ import kotlin.collections.ArrayList
 
 class RecyclerFoodItemAdapter(
     var context: Context,
-    private var itemList: ArrayList<MenuItem>,
+    private var itemList: List<MenuItem>,
     private val loadDefaultImage: Int,
     val listener: OnItemClickListener
 ) :
     RecyclerView.Adapter<RecyclerFoodItemAdapter.ItemListViewHolder>(), Filterable {
 
-    private var fullItemList = ArrayList<MenuItem>(itemList)
+    private var fullItemList = itemList
 
     interface OnItemClickListener {
         fun onItemClick(item: MenuItem)
@@ -82,9 +82,9 @@ class RecyclerFoodItemAdapter(
 
     override fun getItemCount(): Int = itemList.size
 
-    fun filterList(filteredList: ArrayList<android.view.MenuItem>) {
-        itemList = filteredList.get(0) as ArrayList<MenuItem>
-        notifyDataSetChanged()
+    fun filterList(filteredList: List<MenuItem>) {
+       //itemList = filteredList.get(0)
+        //notifyDataSetChanged()
     }
 
     override fun getFilter(): Filter {
