@@ -32,7 +32,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/txtProduct1"
                 android:textAppearance="?attr/textAppearanceTitleLarge"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:textColor="@color/chathamsBlue"/>
 
             <TextView
                 android:id="@+id/tvCardOrden2"
@@ -54,18 +56,6 @@
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
                 />
-
-
-            <!-- <TextView
-                 android:id="@+id/tvCard3"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginTop="16dp"
-                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-                 android:textAppearance="?attr/textAppearanceBodyMedium"
-                 android:textColor="?android:attr/textColorSecondary"
-                 /> -->
-            <!-- android:padding="8dp" -->
 
         </LinearLayout>
     </LinearLayout>

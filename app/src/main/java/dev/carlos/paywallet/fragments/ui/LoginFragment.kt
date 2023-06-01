@@ -65,7 +65,7 @@ class LoginFragment : Fragment() {
             val emailField = binding.etLogin1?.editableText.toString()
             val passwordField = binding.etPassword?.editableText.toString()
 
-            if (emailField.isNotEmpty() == true && passwordField.isNotEmpty()) {
+            if (emailField.isNotEmpty() && passwordField.isNotEmpty()) {
                 auth.signInWithEmailAndPassword(emailField, passwordField)
                     .addOnCompleteListener() { task ->
                         if (task.isSuccessful) {
@@ -102,26 +102,29 @@ class LoginFragment : Fragment() {
 
                     }
 
-                binding.btnLogin2.setOnClickListener {
-                    Toast.makeText(
-                        requireContext(),
-                        "Acude a la cafetería por asistencia.",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                }
-
-                binding.btnLogin3.setOnClickListener {
-                    Toast.makeText(
-                        requireContext(),
-                        "Acude a la cafetería para tu registro",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
-                }
 
             }
 
+
+
+
+        }
+        binding.btnLogin2.setOnClickListener {
+            Toast.makeText(
+                requireContext(),
+                "Acude a la cafetería por asistencia.",
+                Toast.LENGTH_SHORT
+            )
+                .show()
+        }
+
+        binding.btnLogin3.setOnClickListener {
+            Toast.makeText(
+                requireContext(),
+                "Acude a la cafetería para tu registro",
+                Toast.LENGTH_SHORT
+            )
+                .show()
         }
     }
 

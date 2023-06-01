@@ -1,6 +1,6 @@
 package dev.carlos.paywallet.fragments.dataClass
 
-data class MenuItem(
+data class orderItems(
     var itemID: String = "ID",
     var itemCategory: String = "ITEM_ID",
     var imageUrl: String = "ITEM_IMAGE",

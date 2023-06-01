@@ -27,6 +27,7 @@ class RecyclerSingleItemAdapter(
         fun onItemClick(item: MenuItem)
         fun onPlusBtnClick(item: MenuItem)
         fun onMinusBtnClick(item: MenuItem)
+        fun btnAddToCart(item: MenuItem)
     }
 
 

@@ -1,5 +1,6 @@
 package dev.carlos.paywallet.fragments.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -7,11 +8,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import dev.carlos.paywallet.R
 import dev.carlos.paywallet.databinding.FragmentProductBinding
 import dev.carlos.paywallet.fragments.MainActivity
 import dev.carlos.paywallet.fragments.SavedPreference
@@ -22,11 +27,15 @@ import dev.carlos.paywallet.fragments.dataClass.User
 import dev.carlos.paywallet.fragments.interfaces.MenuApi
 import dev.carlos.paywallet.fragments.interfaces.RequestType
 
-class ProductFragment : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener, MenuApi {
+class ProductFragment : Fragment(), RecyclerSingleItemAdapter.OnItemClickListener, MenuApi {
 
     //Database and user dataclass
     private lateinit var user: User
     private lateinit var auth: FirebaseAuth
+
+    private val messages = listOf("Lookin' good, right?", "¿Listx para ordenar?", "Yummy!", "Delicioso!", "¡Buena elección!")
+    private var messageIndex = 0
+
 
     private lateinit var navController: NavController
 
@@ -77,6 +86,7 @@ class ProductFragment : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener,
                     itemShortDesc = desc
                 )
                 allItems.add(newItem)
+                btnAddToCart(newItem)
             }
             val itemRecyclerView = binding.rvProduct
             val recyclerFoodAdapter = RecyclerSingleItemAdapter(
@@ -89,15 +99,26 @@ class ProductFragment : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener,
             itemRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             recyclerFoodAdapter.filterList(allItems) //display complete list
         }
+
     }
 
     override fun onFetchSuccessListener(list: ArrayList<MenuItem>, requestType: RequestType) {
         TODO("Not yet implemented")
     }
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onItemClick(item: MenuItem) {
-        TODO("Not yet implemented")
-    }
+        val message = if (messageIndex < messages.size) {
+            messages[messageIndex]
+        } else {
+            messageIndex = 0
+            messages[messageIndex]
+        }
+
+        val toast = Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT)
+            toast.show()
+            messageIndex++
+        }
 
     override fun onPlusBtnClick(item: MenuItem) {
         TODO("Not yet implemented")
@@ -106,5 +127,20 @@ class ProductFragment : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener,
     override fun onMinusBtnClick(item: MenuItem) {
         TODO("Not yet implemented")
     }
+
+    override fun btnAddToCart(item: MenuItem) {
+        binding.btnProducto1.setOnClickListener{
+            findNavController().navigate(R.id.action_fragmentProducto_to_fragmentInstrucciones, bundleOf(
+                "id" to item.itemID,
+                "imagen.completeUrl" to item.imageUrl,
+                "descripcion" to item.itemShortDesc,
+                "nombre" to item.itemName,
+                "precio" to item.itemPrice,
+                "categoria" to item.itemCategory
+            )
+            )
+        }
+    }
+
 
 }

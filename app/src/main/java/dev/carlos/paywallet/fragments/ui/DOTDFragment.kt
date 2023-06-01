@@ -119,36 +119,6 @@ class DOTDFragment() : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener, 
         ))
     }
 
-    /* override fun onItemClick(item: MenuItem) {
-         val db = Firebase.firestore
-         db.collection("platillos")
-             .whereEqualTo("id", item.id)
-             .get()
-             .addOnSuccessListener { snapsshot ->
-
-
-             }
-      /*   db.collection("platillos")
-             .get()
-             .addOnSuccessListener {
-                 val items = mutableListOf<MenuItem>()
-                 for (document in it) {
-                     var idItem = document.id
-                     var imageUrl = document.getString("imagen.completeUrl")
-                     var itemShortDesc = document.getString("descripcion")
-                     val item = MenuItem(
-                         itemCategory = document.data["categoria"].toString(),
-                         imageUrl = imageUrl.toString(),
-                         itemName = document.data["nombre"].toString(),
-                         itemPrice = document.data["precio"].toString().toFloat(),
-                         itemShortDesc = itemShortDesc.toString()
-                     )
-                     items.add(item)
-                 }
-             }*/
-         navController.navigate(R.id.action_delDia_to_fragmentProducto)
-     }*/
-
     override fun onPlusBtnClick(item: MenuItem) {
         TODO("Not yet implemented")
     }

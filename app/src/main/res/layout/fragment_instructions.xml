@@ -35,8 +35,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="49dp" />
+        app:layout_constraintTop_toBottomOf="@+id/tvIntstrucciones1"
+        tools:ignore="MissingConstraints" />
     <!--
         <EditText
             android:id="@+id/editTextTextMultiLine"
@@ -89,10 +89,11 @@
         android:layout_height="51dp"
         android:layout_marginStart="19dp"
         android:layout_marginEnd="204dp"
-        android:ems="10"
         android:background="@drawable/edit_text_bg"
+        android:ems="10"
         android:hint="@string/txtInstructions5"
         android:inputType="numberSigned"
+        android:text="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

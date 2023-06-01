@@ -4,11 +4,11 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class User(
-    var control_num:String?,
-    var password:String?,
-    var names:String?,
-    var lastnames:String?,
-    var rfid:String?) : Parcelable{
+    var control_num:String? = null,
+    var password:String? = null,
+    var names:String? = null,
+    var lastnames:String? = null,
+    var rfid:String? = null) : Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
