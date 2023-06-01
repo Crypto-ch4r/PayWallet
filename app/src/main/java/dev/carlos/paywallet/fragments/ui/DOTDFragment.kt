@@ -7,9 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.NavGraph
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -73,6 +75,7 @@ class DOTDFragment() : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener, 
                     var imageUrl = document.getString("imagen.completeUrl")
                     var itemShortDesc = document.getString("descripcion")
                     val item = MenuItem(
+                        itemID = document.id,
                         itemCategory = document.data["categoria"].toString(),
                         imageUrl = imageUrl.toString(),
                         itemName = document.data["nombre"].toString(),
@@ -96,7 +99,6 @@ class DOTDFragment() : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener, 
                 itemRecyclerView.layoutManager = LinearLayoutManager(requireContext())
                 recyclerFoodAdapter.filterList(allItems) //display complete list
             }
-
     }
 
     override fun onDestroyView() {
@@ -106,28 +108,15 @@ class DOTDFragment() : Fragment(), RecyclerFoodItemAdapter.OnItemClickListener, 
 
     override fun onItemClick(item: MenuItem) {
         val db = Firebase.firestore
-        db.collection("platillos")
-            .whereEqualTo("id", item.itemID) // Asegúrate de reemplazar "id" con el campo adecuado en Firestore
-            .get()
-            .addOnSuccessListener { snapshot ->
-                val document = snapshot.documents.firstOrNull()
-                if (document != null) {
-                    val imageUrl = document.getString("imagen.completeUrl")
-                    val itemShortDesc = document.getString("descripcion")
-                    val selectedItem = document.data?.get("nombre")?.let {
-                        MenuItem(
-                            //itemCategory = document.data["categoria"].toString(),
-                            imageUrl = imageUrl.toString(),
-                            itemName = it.toString(),
-                            itemPrice = document.data?.get("precio").toString().toFloat(),
-                            itemShortDesc = itemShortDesc.toString()
-                        )
-                    }
-                    // Realiza la navegación a la pantalla de información del platillo aquí,
-                    // pasando el objeto "selectedItem" como argumento.
 
-                }
-            }
+        findNavController().navigate(R.id.action_delDia_to_fragmentProducto, bundleOf(
+            "id" to item.itemID,
+            "imagen.completeUrl" to item.imageUrl,
+            "descripcion" to item.itemShortDesc,
+            "nombre" to item.itemName,
+            "precio" to item.itemPrice,
+            "categoria" to item.itemCategory
+        ))
     }
 
     /* override fun onItemClick(item: MenuItem) {
